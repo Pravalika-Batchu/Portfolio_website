@@ -1,0 +1,190 @@
+/* Global Styles */
+html {
+    scroll-behavior: smooth;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f4f4f4;
+}
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+}
+
+h1, h2 {
+    text-align: center;
+}
+
+header {
+    background: linear-gradient(135deg, #333, #555);
+    background-size: 400% 400%;
+    animation: gradientBackground 10s ease infinite;
+    color: white;
+    padding: 2rem 0;
+    text-align: center;
+    position: relative;
+}
+
+
+.profile-pic {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin-bottom: 1rem;
+    border: 5px solid white;
+    animation: profileZoom 2s ease-in-out infinite alternate;
+}
+
+@keyframes profileZoom {
+    0% {
+        transform: scale(1);
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    }
+    100% {
+        transform: scale(1.1);
+        box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5);
+    }
+}
+
+
+.social-links a {
+    color: white;
+    margin: 0 10px;
+    font-size: 1.5rem;
+    transition: transform 0.3s ease-in-out;
+}
+
+.social-links a:hover {
+    transform: rotate(360deg);
+}
+
+
+section {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+section.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+.skills ul li {
+    display: inline-block;
+    margin: 0.5rem 1rem;
+    background-color: #333;
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    animation: none;
+}
+
+.skills ul li:hover {
+    background-color: #555;
+    transform: translateY(-10px);
+}
+
+
+.project-card {
+    background-color: #eee;
+    margin: 1rem 0;
+    padding: 1rem;
+    border-radius: 10px;
+    box-shadow: 0px 5px 15px rgba(0,0,0,0.2);
+    transition: box-shadow 0.3s ease;
+}
+
+.project-card:hover {
+    box-shadow: 0px 5px 30px rgba(0, 0, 0, 0.4);
+}
+
+
+.contact form input, .contact form textarea {
+    width: 100%;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+.contact form button {
+    padding: 1rem 2rem;
+    background-color: #333;
+    color: rgb(241, 234, 234);
+    background-color: black ;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    transition: color 0.4s ease;
+}
+
+.contact form button::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 300%;
+    height: 300%;
+    background-color: rgb(27, 26, 26);
+    transition: width 0.4s ease, height 0.4s ease, top 0.4s ease, left 0.4s ease;
+    z-index: -1;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.contact form button:hover::before {
+    width: 0;
+    height: 0;
+    top: 50%;
+    left: 50%;
+}
+
+.contact form button:hover {
+    color: #333;
+    background-color: white;
+}
+
+
+footer {
+    text-align: center;
+    padding: 1rem 0;
+    background-color: #333;
+    color: white;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    .container {
+        width: 90%;
+    }
+
+    .profile-pic {
+        width: 120px;
+        height: 120px;
+    }
+
+    .skills ul li, .hobbies ul li {
+        display: block;
+        margin: 0.5rem auto;
+    }
+
+    .project-card {
+        margin-bottom: 1.5rem;
+    }
+}
